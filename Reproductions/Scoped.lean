@@ -2,7 +2,7 @@ module
 
 namespace X
 
-private scoped instance (priority := low) instBEq {α : Type u} [LE α] :
+private scoped instance instBEq {α : Type u} [LE α] :
     BEq α where
   beq _ _ := True
 
