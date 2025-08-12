@@ -1,24 +1,29 @@
 module
 
-prelude
-public import Init.Prelude
-public import Init.Core
-import Init.Classical
-
 namespace X
-open Classical
 
-public scoped instance (priority := low) instBEq {α : Type u} [LE α] :
+private scoped instance (priority := low) instBEq {α : Type u} [LE α] :
     BEq α where
   beq _ _ := True
 
+-- THIS IS FINE:
 /--
-error: Unknown constant `Classical.propDecidable`
+error: failed to synthesize
+  BEq α
 
-Note: A private declaration `propDecidable` exists but is not accessible in the current context.
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
 -/
 #guard_msgs in
-public instance [LE X] :
-    LawfulBEq X := sorry
+public def a [LE X] : BEq α := inferInstance
+
+
+-- THIS IS NOT FINE:
+/--
+error: Unknown constant `_private.Reproductions.Scoped.0.X.instBEq`
+
+Note: A private declaration `instBEq` exists but is not accessible in the current context.
+-/
+#guard_msgs in
+public def b [LE X] : LawfulBEq α := sorry
 
 end X
