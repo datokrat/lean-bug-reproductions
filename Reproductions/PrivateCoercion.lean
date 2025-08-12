@@ -12,3 +12,8 @@ but is expected to have type
 public noncomputable instance instBEq {α : Type u} [LE α] [DecidableLE α] :
     BEq α where
   beq _ _ := private True
+
+-- works because `True` is coerced into `decide True`
+public noncomputable instance instBEq' {α : Type u} [LE α] [DecidableLE α] :
+    BEq α where
+  beq _ _ := True

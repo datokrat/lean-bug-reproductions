@@ -2,7 +2,7 @@ module
 
 public noncomputable instance instBEq {α : Type u} [LE α] [DecidableLE α] :
     BEq α where
-  beq _ _ := private true -- private (a ≤ b ∧ b ≤ a : Bool)
+  beq _ _ := private true
 
 /--
 error: Type mismatch
