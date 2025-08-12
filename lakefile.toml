@@ -1,0 +1,10 @@
+name = "Reproductions"
+version = "0.1.0"
+defaultTargets = ["reproductions"]
+
+[[lean_lib]]
+name = "Reproductions"
+
+[[lean_exe]]
+name = "reproductions"
+root = "Main"
