@@ -2,9 +2,12 @@ name = "Reproductions"
 version = "0.1.0"
 defaultTargets = ["reproductions"]
 
+[leanOptions]
+experimental.module = true
+
 [[lean_lib]]
 name = "Reproductions"
 
-[[lean_exe]]
+[[lean_lib]]
 name = "reproductions"
 root = "Main"

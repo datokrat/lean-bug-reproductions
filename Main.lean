@@ -1,4 +1,4 @@
-import Reproductions
+module
 
-def main : IO Unit :=
-  IO.println s!"Hello, {hello}!"
+import Reproductions.FailingIRCheck
+import Reproductions.Scoped
