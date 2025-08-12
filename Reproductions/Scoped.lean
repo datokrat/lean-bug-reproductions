@@ -12,7 +12,13 @@ public scoped instance (priority := low) instBEq {α : Type u} [LE α] :
     BEq α where
   beq _ _ := True
 
-public instance blabb [LE X] :
+/--
+error: Unknown constant `Classical.propDecidable`
+
+Note: A private declaration `propDecidable` exists but is not accessible in the current context.
+-/
+#guard_msgs in
+public instance [LE X] :
     LawfulBEq X := sorry
 
 end X
