@@ -1,2 +1,2 @@
 import Reproductions.FailingIRCheck
-import Reproductions.Scoped
+import Reproductions.PrivateInstance
