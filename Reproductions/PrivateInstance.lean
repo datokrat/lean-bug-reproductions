@@ -1,6 +1,6 @@
 module
 
-class X
+public class X
 
 private instance : X where
 
