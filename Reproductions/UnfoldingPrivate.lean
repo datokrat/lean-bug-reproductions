@@ -2,32 +2,31 @@ module
 
 public noncomputable instance instBEq {α : Type u} [LE α] [DecidableLE α] :
     BEq α where
-  beq a b := private (a ≤ b ∧ b ≤ a : Bool)
+  beq _ _ := private true -- private (a ≤ b ∧ b ≤ a : Bool)
 
 /--
-error: unsolved goals
-α : Type u
-inst✝¹ : LE α
-inst✝ : DecidableLE α
-⊢ ∀ {a b : α}, instBEq._private_1 a b = true → a = b
+error: Type mismatch
+  True.intro
+has type
+  True
+but is expected to have type
+  instBEq._private_1 = true
 -/
-#guard_msgs(error, drop warning) in
-public instance a {α : Type u} [LE α] [DecidableLE α] :
-    LawfulBEq α where
-  rfl := sorry
-  eq_of_beq := by simp [BEq.beq]
+#guard_msgs in
+private theorem eq_of_beq [LE α] [DecidableLE α] (a b : α) : a == b := by
+  simp only [BEq.beq]
+  exact True.intro
 
 /--
 error: trying to realize `_private.Lean.Environment.0.Lean.Environment.RealizeConstKey` value but `enableRealizationsForConst` must be called for 'instBEq._private_1' first
 ---
 error: unsolved goals
-α : Type u
+α : Type u_1
 inst✝¹ : LE α
 inst✝ : DecidableLE α
-⊢ ∀ {a b : α}, instBEq._private_1 a b = true → a = b
+a b : α
+⊢ instBEq._private_1 = true
 -/
-#guard_msgs(error, drop warning) in
-public instance b {α : Type u} [LE α] [DecidableLE α] :
-    LawfulBEq α where
-  rfl := sorry
-  eq_of_beq := by simp [BEq.beq, instBEq._private_1]
+#guard_msgs in
+private theorem eq_of_beq' [LE α] [DecidableLE α] (a b : α) : a == b := by
+  simp only [BEq.beq, instBEq._private_1]
