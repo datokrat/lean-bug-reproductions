@@ -1,8 +1,13 @@
 module
 
 public class X
-public class Y
 
-instance : X where
+instance : X := sorry
 
-public instance [X] : Y where
+/-- error: a private declaration `instX` has already been declared -/
+#guard_msgs in
+public instance : X := sorry
+
+/-- error: private declaration `instX` has already been declared -/
+#guard_msgs in
+instance : X := sorry
