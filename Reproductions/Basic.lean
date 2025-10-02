@@ -1,13 +1,7 @@
 module
 
-public class X
+public import Reproductions.Test3
+import Reproductions.Test2
 
-instance : X := sorry
-
-/-- error: a private declaration `instX` has already been declared -/
-#guard_msgs in
-public instance : X := sorry
-
-/-- error: private declaration `instX` has already been declared -/
-#guard_msgs in
-instance : X := sorry
+@[expose]
+public def aa := instX.eq_1
