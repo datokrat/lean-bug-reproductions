@@ -2,4 +2,7 @@ module
 
 public class X
 
-public instance : X where
+@[expose]
+public def x : X where
+
+public def y := x
