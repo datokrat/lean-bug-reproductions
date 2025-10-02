@@ -1,7 +1,7 @@
 module
 
-public import Reproductions.Test3
-import Reproductions.Test2
+public import Reproductions.A
+import Reproductions.B
 
 @[expose]
 public def aa := instX.eq_1
