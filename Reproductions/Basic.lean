@@ -1,7 +1,6 @@
 module
 
 import Reproductions.Dependency
-import Reproductions.Dependency2
 
 /--
 error: (kernel) declaration type mismatch, '_private.Reproductions.Basic.0.f' has type
