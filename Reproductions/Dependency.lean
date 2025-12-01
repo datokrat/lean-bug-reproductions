@@ -1,6 +1,6 @@
 module
 
-@[simp]
-public def x (n : Nat) := match n with
-  | 0 => 0
-  | n + 1 => n
+public def f : Nat → Nat := sorry
+
+@[congr]
+theorem t (h : m = n) : f m = f n := sorry

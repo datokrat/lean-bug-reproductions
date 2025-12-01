@@ -2,12 +2,7 @@ module
 
 import Reproductions.Dependency
 
-/--
-error: (kernel) declaration type mismatch, '_private.Reproductions.Basic.0.f' has type
-  0 = 0
-but it is expected to have type
-  x 0 = 0
--/
+/-- error: Unknown constant `_private.Reproductions.Dependency.0.t` -/
 #guard_msgs in
-theorem f : x 0 = 0 := by
+theorem u (h : m = n) : f m = f n := by
   simp
